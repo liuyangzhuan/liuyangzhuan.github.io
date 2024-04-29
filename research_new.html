@@ -76,7 +76,7 @@
                   <li></li>
 				  <li><a href="software.html">Software</a></li>
 				  <li></li> 					
-                  <li><a href="docs/CV_LBNL_2023_10_03.pdf">CV</a></li>
+                  <li><a href="docs/CV_LBNL_2024_04_29.pdf">CV</a></li>
                   <li></li>
                 </ul>
               </div>
@@ -128,14 +128,14 @@ liuyangzhuan@lbl.gov</p>
 
 
 
-<h4>Direct Solvers</h4>                    
+<h4>Numerical Linear Algebra and Direct Solvers</h4>                    
 <ul>
 
-                        <li> <strong>Randomized butterfly factorization-based direct solution of the frequency-domain integral equations (IE) and differential equations (DE).</strong> Direct IE solutions for high-frequency Helmholtz problems is attractive when the system matrix becomes ill-conditioned (e.g., due to low-frequency, dense-mesh breakdown or near resonance phenomena) or the system involves many right-hand sides, in which cases iterative methods fail to provide efficient solutions. However, development of a low-complexity direct solver for high frequency problems is a challenging task as past direct solvers were low-rank factorization-based and lead to the eventual O(N^3) computational complexity for such problems. This work develops butterfly factorization-based direct solvers that construct butterfly-compressed H-matrices, HODLR, and HSS matrices and compute the matrix inverse via randomized butterfly schemes. These solvers exhibit quasi-optimal CPU and memory complexities when applied to large complex-shaped objects. The above-mentioned solvers have also been combined with a multi-frontal sparse matrix solver STRUMPACK to solve high-frequency problems from DE formulations. </li>
+            <li> <strong>Randomized butterfly factorization-based direct solution of the frequency-domain integral equations (IE) and differential equations (DE).</strong> Direct IE solutions for high-frequency Helmholtz problems is attractive when the system matrix becomes ill-conditioned (e.g., due to low-frequency, dense-mesh breakdown or near resonance phenomena) or the system involves many right-hand sides, in which cases iterative methods fail to provide efficient solutions. However, development of a low-complexity direct solver for high frequency problems is a challenging task as past direct solvers were low-rank factorization-based and lead to the eventual O(N^3) computational complexity for such problems. This work develops butterfly factorization-based direct solvers that construct butterfly-compressed H-matrices, HODLR, and HSS matrices and compute the matrix inverse via randomized butterfly schemes. These solvers exhibit quasi-optimal CPU and memory complexities when applied to large complex-shaped objects. The above-mentioned solvers have also been combined with a multi-frontal sparse matrix solver STRUMPACK to solve high-frequency problems from DE formulations. </li>
 
-						<li> <strong>Distributed-memory hierarchical matrix solvers for rank-structured linear systems.</strong> In addition to Helmholtz equations, many scientific and engineering applications require solving large linear systems that exhibit hierarchical rank structures. These systems can be solved in quasi-linear time with hierarchical matrix techniques. For certain applications, existing distributed-memory hierarchical matrix packages such as MUMPS and STRUMPACK exhibit scaling bottlenecks w.r.t systems sizes and/or processor counts. I developed fast algorithms such as hierarchical blocked adaptive cross approximation (H-BACA) and randomized HODLR compression to rapidly construct, factor and solve these linear systems. These algorithms have been applied to accelerate wave-equations, kernel ridge regression and quantum chemistry applications.</li>
+						<li> <strong>Low-rank and tensor algorithms for rank-structured linear systems in PDE.</strong> In addition to Helmholtz equations, many scientific and engineering applications require solving/applying large linear/multi-linear systems/operators that exhibit hierarchical rank structures. These systems can be solved in quasi-linear time with hierarchical matrix, and randomized low-rank and tensor techniques. I developed fast algorithms such as hierarchical blocked adaptive cross approximation (H-BACA), sketching-based hierarchical matrix construction, new tensor algorithms for high-dimensional problems to rapidly construct, factor or solve these computationally demanding operators. These algorithms have been applied to accelerate wave-equations, kernel ridge regression, reaction-diffusion equations, fractional Laplacian, incompressible Navier-Stokes equations, and quantum chemistry applications.</li>
 	
-						<li> <strong>Highly-efficient parallel sparse triangular solver.</strong> Triangular solution phase is often performed following factorization phase in the sparse linear solvers and has become increasingly computationally expensive for direct solvers with many RHSs or preconditioned iterative solvers. However, the low arithmetic intensity and sequential nature of the triangular solve algorithm pose performance challenges for its large-scale parallelization. I developed an asynchronous binary-tree-based communication scheme with 2D block cyclic process layout to reduces message latency, improves communication load balance and significantly accelerates asynchronous execution of the triangular solve on distributed-memory. The algorithm is further enhanced leveraging one-sided communication models. In additioin, we are working on GPU and multi-GPU impelementations of these algorithms. These new developments have been integrated into the sparse solver SuperLU_DIST.</li>	
+						<li> <strong>Highly-scalable supernodal-based sparse direct solver.</strong> Supernodal-based sparse direct solvers, such as SuperLU_DIST, are widely adopted in many scientific and engineering applications. Their typical use patterns include single and repetitive factorization/solve, block preconditioner in Krylov methods, and batched factorization/solve on single or many CPU/GPU nodes. I developed advanced communication-avoiding/optimized factorization and solve algorithms for large-scale CPU and GPU clusters. These new algorithms have been demonstrated with superior parallel scalability on CPU and GPU machines for many applications such as fusion simulation, power grid optimization, and nuclear physics applications. These new developments have been integrated into the sparse solver SuperLU_DIST.</li>	
            
 
 
@@ -144,7 +144,7 @@ liuyangzhuan@lbl.gov</p>
 					
 
 					
-<p>Algorithm developments for direct solvers: (left) butterfly and low-rank direct solvers, (middle) H-BACA algorithm, (right) sparse tirangular solver (<span class="colortext1">Click on the figures to zoom in</span>). </p>
+<p>Algorithm developments for direct solvers: (top left) butterfly and low-rank direct solvers in ButterflyPACK, (top middle) H-BACA algorithm, (top right) applications of the IE solvers in ButterflyPACK, (bottom left) seismic modeling with ButterflyPACK and STRUMPACK, (bottom middle) strong scaling of sparse CPU/GPU triangular Solve in SuperLU_DIST, (bottom right) time scaling with batch count for SuperLU_DIST batched factor and solve algorithms. (<span class="colortext1">Click on the figures to zoom in</span>). </p>
 
 
               <div class="yoxview">
@@ -153,35 +153,134 @@ liuyangzhuan@lbl.gov</p>
             
               <div class="span4 box">
                 
-                  <a href="images/BPACK.jpg"><img src="images/BPACK.jpg"  class="img-polaroid" alt="Thumbnail Placeholder" title="Hierarchical Formats Supported in ButterflyPACK" /></a>
+                  <a href="images/BPACK_new.png"><img src="images/BPACK_new.png"  class="img-polaroid" alt="Thumbnail Placeholder" title="Six Hierarchical Formats Supported in ButterflyPACK" /></a>
                 
               </div>
               
 			  <div class="span4 box">
                 
-                  <a href="images/BACA.jpg"><img src="images/BACA.jpg" class="img-polaroid" alt="Thumbnail Placeholder" title="Performance of H-BACA" /></a>
+                  <a href="images/BACA_new.png"><img src="images/BACA_new.png" class="img-polaroid" alt="Thumbnail Placeholder" title="Parallel Performance of H-BACA and baseline ACA" /></a>
                 
               </div>
 			  
+				  
 			  <div class="span4 box">
                 
-                  <a href="images/TRSV.jpg"><img src="images/TRSV.jpg" class="img-polaroid" alt="Thumbnail Placeholder" title="Highly scalable sparse triangular solve" /></a>
+                  <a href="images/IE_applications.png"><img src="images/IE_applications.png" class="img-polaroid" alt="Thumbnail Placeholder" title="Applications of the IE Solvers in ButterflyPACK: (a) RCS radar cross section (b) Biomedical imaging (c) Wireless communication in mine tunnels (d) Wireless power transfer and (e) RF accelerator modeling" /></a>
+				  
+              </div>	
+			  </div>
+				  
+				  
+			<div class="row-fluid">	  
+			  <div class="span4 box">
+                
+                  <a href="images/seismic_modeling.png"><img src="images/seismic_modeling.png" class="img-polaroid" alt="Thumbnail Placeholder" title="IE and DE formulations solved by ButterflyPACK and STRUMPACK for seismic modeling" /></a>
+				  
+              </div>						  
+				  
+				  
+			  <div class="span4 box">
+                
+                  <a href="images/Strongscaling_PerlmutterGPU.png"><img src="images/Strongscaling_PerlmutterGPU.png" alt="Thumbnail Placeholder" class="img-polaroid" title="Highly scalable sparse triangular solve on CPU and GPU clusters" /></a>
 				  
               </div>		  
-                          
 
+				  
+			  <div class="span4 box">
+                
+                  <a href="images/LR_magma_vs_slu_time.png"><img src="images/LR_magma_vs_slu_time.png" class="img-polaroid" alt="Thumbnail Placeholder" title="Batched sparse factorization ans solve" /></a>
+				  
+              </div>					  
+				  
+
+			  
+				  
+				  
+				  
+				  
               </div>
 
               </div>					
 					
 					
 				
+		
 					
+<h4>Uncertainty Quantification and Machine Learning</h4>                    
+<ul>
+	          <li> <strong>Gaussian process (GP)-based autotuning framework for exascale and machine learning applications.</strong> The performance (e.g., runtime, memory, communication, accuracy) of high-performance computing (HPC) applications can vary significantly subject to a selected number of tuning parameters of real, integer and categorical types. However, even a single evaluation can require long execution time using many compute nodes. The GP frameworks are suitable solutions for autotuning HPC applications as they require a relatively small number of function evaluations to build surrogate models of the application function. Our work extends and improves traditional GP frameworks by considering multi-task and transfer learning algorithms using the localized coregionalization model (LCM). The resulting GPTune tool and its variants outperform existing single-task tuners for many exascale applications such as SuperLU_DIST, Hypre, ScaLAPACK, NIMROD, M3DC1, STRUMPACK, MFEM, etc. A few advanced features to note: GPTune can leverage shared and distributed-memory parallelism to accelerate the surrogate modeling, utilize historical and cloud databases to incorporate more data, combine with multi-arm bandit strategies (GPTuneBand) for multi-fidelity tuning, leverage clustered GP algorithms (cGP) for better modeling of non-smooth functions, support multi-objective tuning and incorporation of coarse performance models. </li>
+	
+			  <li> <strong>Domain-aware neural operators for fusion simulations.</strong> Fusion simulations typically rely on particle-in-cell methods, spectral methods, or finite-element methods based on either Vlasov-type equations for fluid models. These simulation tools are very expensive for whole device tokamak or stellarator modeling. Our work develops novel neural operators as a cheap surrogate for first-principle numerical simulators. Our ML surrogate is based on Fourier neural operators (FNO) which typically requires less training samples, parameter counts compared to other ML tools, while maintaining high prediction accuracy. Our ML surrogate further leverages governing equations of a given fusion simulator to significantly reduce the number of network parameters, which we call fusion-FNO. The fusion-FNO can be used as preconditinoers for linear systems in fusion simulators, cheap diagnostic tools, or transfer learning tools.   
+	</li>
+	
+			  <li> <strong>Statistical characterization of electromagnetic wave propagation in mine tunnels using multi-element probabilistic collocation method (ME-PC)</strong>. The uncertainty quantification of EM wave propagation in realistic mine environments is very challenging due to inefficiency and inaccuracy of existing simulators and surrogate modeling tools. We leverage the ME-PC algorithm for the surrogate and a full-wave IE simulator (FMM-FFT-SIE) for computing the observables. The pertinent statistics can be then extracted via Monte-Carlo using the combined ME-PC and FMM-FFT-SIE approach. </li>	
+</ul>	
+
+<p>Autotuning resuls using GPTune (top left) and its variants GPTuneBand (top middle), cGP (top right) and transfer learning (bottom left). Hybrid Bayesian + Downhill simplex optimization for RF accelerator modeling (bottom middle). Fusion-FNO as a cheap surrogate for tokamak modeling.  
+	
+	
+	(<span class="colortext1">Click on the figures to zoom in</span>). </p>
+
+
+              <div class="yoxview">
+
+              <div class="row-fluid">
+            
+              <div class="span4 box">
+                
+                <a href="images/ppopp_superlu_dist.png"><img src="images/ppopp_superlu_dist.png"  class="img-polaroid" alt="Thumbnail Placeholder" title="Multi-task tuning of SuperLU_DIST: GPTune vs OpenTuner/HpBandster" /></a>
+                
+              </div>
+              
+			  <div class="span4 box">
+                
+                <a href="images/gptuneband_GCN.png"><img src="images/gptuneband_GCN.png" alt="Thumbnail Placeholder" height="10" class="img-polaroid" title="Tuning history of GCN on the Citeseer dataset using multi-fidelity GPTuneBand, single-fidelity GPTune and other tuners" /></a>
+                
+              </div>
+			  
+			  <div class="span4 box">
+                
+                  <a href="images/cGP_MM.png"><img src="images/cGP_MM.png" alt="Thumbnail Placeholder" class="img-polaroid" title="Cluster GP on the matrix-matrix multiplication with 3 clusters" /></a>
+				  
+              </div>		  
+                          
+
+              </div>
+
+				  
+ 				<div class="row-fluid">
+            
+              <div class="span4 box">
+                
+                <a href="images/TLA_nimrod.png"><img src="images/TLA_nimrod.png"  class="img-polaroid" alt="Thumbnail Placeholder" title="Transfer learning of GPTune: transfering from 32 Hawell nodes to 64 Haswell nodes (a) or 64 KNL nodes (b)." /></a>
+                
+              </div>
+              
+			  <div class="span4 box">
+                
+                <a href="images/GP_Downhill.png"><img src="images/GP_Downhill.png" alt="Thumbnail Placeholder" height="10" class="img-polaroid" title="Hybrid Gaussian process and downhill-simplex optimization for detecting RF resonance frequencies." /></a>
+                
+              </div>
+			  
+			  <div class="span4 box">
+                
+                  <a href="images/NN_overview.png"><img src="images/NN_overview.png" alt="Thumbnail Placeholder" class="img-polaroid" title="Fusion-FNO for predicting 3D fields in NIMROD." /></a>
+				  
+              </div>		  
+                          
+
+              </div>				  
+				  
+				  
+              </div>					
+					
+			
 					
 <h4>Time-Domain Solvers for Electromagnetic and Multi-Physics Analysis</h4>                    
 <ul>
 
-                        <li> <strong>Plane-wave-time-domain algorithm (PWTD)-accelerated time-domain integral equation (TDIE) solutions.</strong> The PWTD algorithm is the time domain counterpart of the frequency-domain fast multipole method (FMM) that is well-suited to accelerate the TDIE solutions for large transient electromagnetic problems. However, PWTD-TDIE solvers were not able to solve ultra-big EM problems as can be solved by the frequency-domain solvers due to stability and computation efficiency issues. This works develops provably scalable parallelization of the PWTD algorithm on modern computing architectures and explores the use of wavelet compression to reduce the computational costs. The resultant PWTD algorithms, when integrated into surface/volume integral equation solvers, enables electromagnetic characterization of real-life objects involving ten million/tens of million spatial unknowns, a significant improvement over past TDIE solvers. See the illustrations below. </li>
+          <li> <strong>Plane-wave-time-domain algorithm (PWTD)-accelerated time-domain integral equation (TDIE) solutions.</strong> The PWTD algorithm is the time domain counterpart of the frequency-domain fast multipole method (FMM) that is well-suited to accelerate the TDIE solutions for large transient electromagnetic problems. However, PWTD-TDIE solvers were not able to solve ultra-big EM problems as can be solved by the frequency-domain solvers due to stability and computation efficiency issues. This works develops provably scalable parallelization of the PWTD algorithm on modern computing architectures and explores the use of wavelet compression to reduce the computational costs. The resultant PWTD algorithms, when integrated into surface/volume integral equation solvers, enables electromagnetic characterization of real-life objects involving ten million/tens of million spatial unknowns, a significant improvement over past TDIE solvers. See the illustrations below. </li>
 
 	
 </ul>
@@ -220,45 +319,6 @@ liuyangzhuan@lbl.gov</p>
 
 					
 					
-					
-<h4>Uncertainty Quantification and Machine Learning</h4>                    
-<ul>
-	          <li> <strong>Gaussian process (GP)-based autotuning framework for exascale and machine learning applications.</strong> The performance (e.g., runtime, memory, communication, accuracy) of high-performance computing (HPC) applications can vary significantly subject to a selected number of tuning parameters of real, integer and categorical types. However, even a single evaluation can require long execution time using many compute nodes. The GP frameworks are suitable solutions for autotuning HPC applications as they require a relatively small number of function evaluations to build surrogate models of the application function. Our work extends and improves traditional GP frameworks by considering multi-task and transfer learning algorithms using the localized coregionalization model (LCM). The resulting GPTune tool and its variants outperform existing single-task tuners for many exascale applications such as SuperLU_DIST, Hypre, ScaLAPACK, NIMROD, M3DC1, STRUMPACK, MFEM, etc. A few advanced features to note: GPTune can leverage shared and distributed-memory parallelism to accelerate the surrogate modeling, ultize historical and cloud databases to incorporate more data, combine with multi-arm bandit strategies (GPTuneBand) for multi-fidelity tuning, leverage clustered GP algorithms (cGP) for better modeling of non-smooth functions, support multi-objective tuning and incorporation of coarse performance models. </li>
-	
-			  <li> <strong>Statistical characterization of electromagnetic wave propagation in mine tunnels using multi-element probabilistic collocation method (ME-PC)</strong>. The uncertaincy quantification of EM wave propagation in realistic mine environments is very challenging due to inefficiency and inaccuracy of existing simulators and surrogate modeling tools. We leverage the ME-PC algorithm for the surrogate and a full-wave IE simulator (FMM-FFT-SIE) for computing the observables. The pertinent statistics can be then extracted via Monte-Carlo using the combined ME-PC and FMM-FFT-SIE approach. </li>	
-</ul>	
-
-<p>Autotuning Resuls using GPTune (left) and its variants GPTuneBand (middle) and cGP (right). (<span class="colortext1">Click on the figures to zoom in</span>). </p>
-
-
-              <div class="yoxview">
-
-              <div class="row-fluid">
-            
-              <div class="span4 box">
-                
-                <a href="images/ppopp_superlu_dist.png"><img src="images/ppopp_superlu_dist.png"  class="img-polaroid" alt="Thumbnail Placeholder" title="Multi-task tuning of SuperLU_DIST: GPTune vs OpenTuner/HpBandster" /></a>
-                
-              </div>
-              
-			  <div class="span4 box">
-                
-                <a href="images/gptuneband_GCN.png"><img src="images/gptuneband_GCN.png" alt="Thumbnail Placeholder" height="10" class="img-polaroid" title="Tuning history of GCN on the Citeseer dataset using multi-fidelity GPTuneBand, single-fidelity GPTune and other tuners" /></a>
-                
-              </div>
-			  
-			  <div class="span4 box">
-                
-                  <a href="images/cGP_MM.png"><img src="images/cGP_MM.png" alt="Thumbnail Placeholder" class="img-polaroid" title="Cluster GP on the matrix-matrix multiplication with 3 clusters" /></a>
-				  
-              </div>		  
-                          
-
-              </div>
-
-              </div>					
-					
-
                      
 </ul>
                     
