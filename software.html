@@ -142,7 +142,7 @@ I'm currently the lead or one core developer of the following software packages.
 
 <h4><a href="https://github.com/liuyangzhuan/ButterflyPACK">ButterflyPACK</a></h4>                    
 <ul>
-<li>ButterflyPACK is a mathematical software for rapidly solving large-scale dense linear systems that exhibit off-diagonal rank-deficiency. These systems arise frequently from boundary element methods, or factorization phases in finite-difference/finite-element methods. ButterflyPACK relies on low-rank or butterfly formats under Hierarchical matrix, HODLR or other hierarchically nested matrix and tensor frameworks to compress, factor and solve the linear system in quasi-linear time. The computationally most intensive phase, factorization, is accelerated via randomized linear algebras. The butterfly format, originally inspired by the butterfly data flow in fast Fourier Transform, is a linear algebra tool well-suited for compressing matrices arising from high-frequency wave equations or highly oscillatory integral operators.</li>
+<li>ButterflyPACK is a mathematical software for rapidly solving large-scale dense linear systems that exhibit off-diagonal rank-deficiency. These systems arise frequently from boundary element methods, or factorization phases in finite-difference/finite-element methods. ButterflyPACK relies on low-rank or butterfly formats under Hierarchical matrix, HODLR or other hierarchically nested matrix and tensor frameworks to compress, factor and solve the linear system in quasi-linear time. The computationally most intensive phase, factorization, is accelerated via randomized linear algebras. The butterfly format, originally inspired by the butterfly data flow in fast Fourier Transform, is a linear algebra tool well-suited for compressing matrices arising from high-frequency wave equations or highly oscillatory integral operators. Recently we extended the matrix butterfly algorithm to its tensor variant, whose implementation is also available in ButterflyPACK.</li>
 </ul>		
 					
 					
@@ -167,18 +167,10 @@ SuperLU_DIST is a parallel extension to the serial SuperLU library. It is target
 <li>GPTune is an autotuning framework that relies on multitask and transfer learnings to help solve the underlying black-box optimization problem. The package supports distributed and shared parallelism at both the application and tuner levels. Under the examples folder, there are illustrative examples on how to use GPTune to tune the runtime and memory of application codes such as SuperLU_DIST and ScaLAPACK. </li>
 </ul>						
 				
-       
-
-	
-</ul>
-
-
-
-
-
-                     
-</ul>
-                    
+<h4><a href="https://github.com/liuyangzhuan/STFNO">STFNO</a></h4>                    
+<ul>
+<li>STFNO (Sparsified Time-dependent PDEs FNO code) is an extension of the popular Fourier Neural Operator (FNO) architecture to the solution of coupled systems of time-dependent partial differential equations. STFNO leverages the sparsified dependencies on the field quantities based on the semi-discretiezed form of the PDEs, enabling significant reduction in the number of model parameters. STFNO has been extensively tested on two fusion simulation codes, NIMROD and GTC, and can be easily tailored to other systems of PDEs. </li>
+</ul>						                   
      
 
 					
